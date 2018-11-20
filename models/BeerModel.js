@@ -1,8 +1,12 @@
 var BeerModel = Backbone.Model.extend({
-  defaults: {
-    name: '',
-    style: '',
-    abv: 0,
-    image_url: ''
+  defaults: function () {
+    return {
+      id: null,
+      name: '',
+      style: '',
+      abv: 0,
+      image_url: '',
+      reviews: new ReviewsCollection()
+    }
   }
 });

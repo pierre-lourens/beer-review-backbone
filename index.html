@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
@@ -19,26 +19,29 @@
           <h1><i class="fa fa-beer"></i> BeerReviews</h1>
         </div>
 
-        <div class="beer-list"></div>
+        <div class="beers-container show">
+          <div class="beer-list"></div>
 
-        <div class="form-group">
-          <label>Beer Name</label>
-          <input type="text" class="form-control" id="name-input" placeholder="name">
+          <div class="form-group">
+            <label>Beer Name</label>
+            <input type="text" class="form-control" id="name-input" placeholder="name">
+          </div>
+          <div class="form-group">
+            <label>Beer Style</label>
+            <input type="text" class="form-control" id="style-input" placeholder="style">
+          </div>
+          <div class="form-group">
+            <label>AVB</label>
+            <input type="text" class="form-control" id="abv-input" placeholder="abv">
+          </div>
+          <div class="form-group">
+            <label>Image Url</label>
+            <input type="text" class="form-control" id="img-input" placeholder="image url">
+          </div>
+          <button class="btn btn-primary submit-beer">submit</button>
         </div>
-        <div class="form-group">
-          <label>Beer Style</label>
-          <input type="text" class="form-control" id="style-input" placeholder="style">
-        </div>
-        <div class="form-group">
-          <label>AVB</label>
-          <input type="text" class="form-control" id="abv-input" placeholder="abv">
-        </div>
-        <div class="form-group">
-          <label>Image Url</label>
-          <input type="text" class="form-control" id="img-input" placeholder="image url">
-        </div>
-        <button class="btn btn-primary submit-beer">submit</button>
 
+        <div class="reviews-container"></div>
       </div>
     </div>
   </div>
@@ -48,7 +51,8 @@
       <img src="{{image_url}}">
     </div>
     <div class="content-container">
-      <p class="beer-name">{{name}}</p>
+      <a class="view-beer" href="#" data-id={{id}}>
+      <p class="beer-name">{{name}}</p></a>
       <input class="beer-name edit-mode" value="{{name}}">
       <p>{{style}} - {{abv}}% ABV</p>
     </div>
@@ -56,11 +60,47 @@
     <i class="fa fa-pencil-square-o edit"></i>
   </script>
 
+  <script id="beer-detail-template" type="text/x-handlebars-template">
+    <a class="back" href="#">back</a>
+    <div class="img-container">
+      <img class="beer-detail-img" src="{{image_url}}">
+    </div>
+    <div class="content-container">
+      <p class="beer-name">{{name}}</p>
+      <input class="beer-name edit-mode" value="{{name}}">
+      <p>{{style}} - {{abv}}% ABV</p>
+
+      <div class="reviews-list"></div>
+
+      <div class="form-group">
+        <label>User Name</label>
+        <input type="text" class="form-control" id="review-name-input" placeholder="name">
+      </div>
+      <div class="form-group">
+        <label>Review Notes</label>
+        <input type="text" class="form-control" id="review-notes-input" placeholder="notes">
+      </div>
+      <button class="btn btn-primary submit-review">submit</button>
+    </div>
+  </script>
+
+  <script id="review-template" type="text/x-handlebars-template">
+    <div class="content-container">
+      <span class="review-name">{{name}} - </span>
+      <span class="reviews-notes">{{text}}</span>
+      <i class="fa fa-times remove"></i>
+    </div>
+  </script>
+
   <script src="models/BeerModel.js"></script>
+  <!-- <script src="models/ReviewModel.js"></script> -->
   <script src="collections/BeersCollection.js"></script>
+  <!-- <script src="collections/ReviewsCollection.js"></script> -->
   <script src="models/AppModel.js"></script>
   <script src="views/AppView.js"></script>
   <script src="views/BeerView.js"></script>
+  <!-- <script src="views/ReviewView.js"></script> -->
+  <!-- <script src="views/BeerDetailView.js"></script> -->
   <script src="main.js"></script>
 </body>
 </html>
