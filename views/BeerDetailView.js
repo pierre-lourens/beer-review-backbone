@@ -1,5 +1,5 @@
 var BeerDetailView = Backbone.View.extend({
-  tagName: 'reviews-container-inner',
+  className: 'reviews-container-inner',
 
   template: Handlebars.compile($('#beer-detail-template').html()),
 
