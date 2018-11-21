@@ -22,6 +22,7 @@ var AppView = Backbone.View.extend({
     this.detailView = null;
 
     this.listenTo(this.model, 'change:current_beer', this.renderDetailView);
+    this.listenTo(this.model.get('beers'), 'reset', this.renderBeers);
 
     this.renderBeers();
   },

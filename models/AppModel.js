@@ -11,9 +11,6 @@ var AppModel = Backbone.Model.extend({
   },
 
   showReviews: function (id) {
-    // turn our string into a number
-    id = parseInt(id);
-
     var allBeers = this.get('beers');
 
     var currentBeer = allBeers.findWhere({ id: id });
