@@ -42,12 +42,12 @@ var AppView = Backbone.View.extend({
   },
 
   createBeer: function () {
-    this.model.get('beers').add({
-      name: this.$nameInput.val(),
-      style: this.$styleInput.val(),
-      abv: this.$abvInput.val(),
-      image_url: this.$imgUrl.val()
-    });
+    this.model.get('beers').addBeer(
+      this.$nameInput.val(),
+      this.$styleInput.val(),
+      this.$abvInput.val(),
+      this.$imgUrl.val()
+    );
   },
 
   renderBeer: function (beer) {
